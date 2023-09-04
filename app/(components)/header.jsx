@@ -6,8 +6,8 @@ import { Search } from "lucide-react";
 
 export default function Header() {
   return (
-    <header className="w-full p-4 text-gray-800 bg-gray-100">
-      <div className="flex justify-between w-full h-20">
+    <header className="py-8 text-gray-600 border-t-gray-100">
+      <div className="flex flex-wrap items-center justify-center w-full space-y-4 sm:justify-between sm:space-y-0">
         <Link
           rel="noopener noreferrer"
           href="#"
