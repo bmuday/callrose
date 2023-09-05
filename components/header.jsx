@@ -27,7 +27,7 @@ export default function Header() {
         </Link>
 
         <div className="flex">
-          <h2>{`Hello ${user.username}`}</h2>
+          {user && <h2> {`Hello ${user.username}`}</h2>}
           <div className="flex items-center flex-shrink-0 mr-5 md:flex">
             {user &&
               headerLinks.map((l, index) => {
