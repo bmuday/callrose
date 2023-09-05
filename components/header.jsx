@@ -6,7 +6,6 @@ import { UserButton, useUser } from "@clerk/nextjs";
 
 export default function Header() {
   const { user } = useUser();
-  console.log("user", user);
   return (
     <header className="p-4 text-gray-800">
       <div className="flex items-center justify-between h-16 border-b-gray-100">
@@ -28,21 +27,22 @@ export default function Header() {
         </Link>
 
         <div className="flex">
-          <h2>{`Hello ${"user"}`}</h2>
+          <h2>{`Hello ${user.username}`}</h2>
           <div className="flex items-center flex-shrink-0 mr-5 md:flex">
-            {headerLinks.map((l, index) => {
-              const link = classnames({
-                "self-center px-8 py-3 rounded": true,
-                "font-semibold bg-violet-600 text-gray-50": l.active,
-              });
-              return (
-                <Link key={index} className={link} href={l.url}>
-                  {l.label}
-                </Link>
-              );
-            })}
+            {user &&
+              headerLinks.map((l, index) => {
+                const link = classnames({
+                  "self-center px-8 py-3 rounded": true,
+                  "font-semibold bg-violet-600 text-gray-50": l.active,
+                });
+                return (
+                  <Link key={index} className={link} href={l.url}>
+                    {l.label}
+                  </Link>
+                );
+              })}
           </div>
-          <UserButton afterSignOutUrl="/" />
+          {user && <UserButton afterSignOutUrl="/" />}
         </div>
       </div>
     </header>
