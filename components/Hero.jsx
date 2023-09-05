@@ -8,8 +8,8 @@ export default function Hero() {
           Téléphone Rose 100% anonyme
         </h1>
         <p className="px-8 mt-8 mb-12 text-lg">
-          Envie de faire l'amour en toute discrétion ? Viens découvrir le plus
-          grand portail d'hôtesses.
+          Envie de faire l&apos;amour en toute discrétion ? Viens découvrir le
+          plus grand portail d&apos;hôtesses.
         </p>
         <div className="flex flex-wrap justify-center">
           <Link
