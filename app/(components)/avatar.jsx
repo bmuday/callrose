@@ -11,14 +11,44 @@ import {
   DropdownMenuTrigger,
 } from "@/app/(components)/ui/dropdown-menu";
 import { Moon, Sun } from "lucide-react";
-import { useDarkStore } from "@/app/(stores)";
+import { useDarkStore, useUserStore } from "@/app/(stores)";
+import { fetchDirectus } from "@/app/(lib)/directus";
+import { deleteCookie } from "@/app/(lib)/utils";
 
 export default function Avatar() {
-  const isPremium = false;
-  const subscription = "";
   const dark = useDarkStore((state) => state.dark);
   const setDark = useDarkStore((state) => state.changeMode);
+  const setUser = useUserStore((state) => state.setUser);
+  const setMember = useUserStore((state) => state.setMember);
+  const setUserSession = useUserStore((state) => state.setUserSession);
+  const refresh_token = useUserStore((state) => state.userSession)
+    ?.refresh_token;
 
+  const handleLogout = async () => {
+    const endpoint = "/auth/logout";
+    const options = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    options.method = "POST";
+    if (refresh_token) options.body = JSON.stringify({ refresh_token });
+
+    try {
+      await fetchDirectus(endpoint, options);
+      setPeer(null);
+      setUser(null);
+      setMember(null);
+      setUserSession(null);
+      deleteCookie("directus_refresh_token");
+      // router.push("/login");
+    } catch (error) {
+      console.log("error", error);
+    }
+
+    // const logout = await res.json();
+    // console.log("logout", logout);
+  };
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
@@ -28,10 +58,7 @@ export default function Avatar() {
         </Container>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuItem>Profile</DropdownMenuItem>
-        <DropdownMenuItem>
-          {isPremium ? "Billing" : "Become Premium!"}
-        </DropdownMenuItem>
+        <DropdownMenuItem>My account</DropdownMenuItem>
         <DropdownMenuItem onClick={() => setDark(!dark)}>
           {dark ? (
             <>
@@ -45,6 +72,7 @@ export default function Avatar() {
             </>
           )}
         </DropdownMenuItem>
+        <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

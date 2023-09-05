@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
 
 export function middleware(request) {
-  // for (const pair of request.headers.entries()) {
-  //   if (pair[0] === "cookie" && pair[1].includes("directus_refresh_token"))
-  //     return;
-  // }
-  return; // NextResponse.json({msg: "ok"}).redirect(new URL("/login", request.url));
+  for (const pair of request.headers.entries()) {
+    if (pair[0] === "cookie" && pair[1].includes("directus_refresh_token"))
+      return;
+  }
+  return NextResponse.redirect(new URL("/login", request.url));
 }
 
 export const config = {

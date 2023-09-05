@@ -1,10 +1,12 @@
 "use client";
 import Link from "next/link";
 import { headerLinks } from "@/app/(lib)/constants";
-import classnames from "classnames";
 import { Search } from "lucide-react";
+import Avatar from "./avatar";
+import { useUserStore } from "@/app/(stores)";
 
 export default function Header() {
+  const user = useUserStore((state) => state.user);
   return (
     <header className="py-8 text-gray-600 border-t-gray-100">
       <div className="flex flex-wrap items-center justify-center w-full space-y-4 sm:justify-between sm:space-y-0">
@@ -40,6 +42,8 @@ export default function Header() {
             <Link href={link.url}>{link.label}</Link>
           ))}
         </div>
+        {user && <Avatar />}
+        <Avatar />
       </div>
     </header>
   );

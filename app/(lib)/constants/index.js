@@ -16,7 +16,6 @@ import {
 export const headerLinks = [
   { label: "Achat crédits", url: "/order", active: false },
   { label: "Messagerie", url: "/messages", active: false },
-  { label: "Mon compte", url: "/account", active: true },
 ];
 
 export const leftBarLinks = [
