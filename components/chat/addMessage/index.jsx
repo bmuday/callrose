@@ -18,7 +18,7 @@ export default function AddMessage({ setRoomMessages, setPrivateMessages }) {
           className="w-[80%] h-full border px-5"
           type="text"
           value={message}
-          // onChange={(e) => setMessage(e.target.value)}
+          onChange={(e) => setMessage(e.target.value)}
           placeholder="Enter the message..."
         />
         <div className="flex justify-center w-[20%] items-center px-5 py-2">
