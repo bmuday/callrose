@@ -60,7 +60,7 @@ export default function ChatLanding({ setMember, peer }) {
             placeholder="Enter your pseudo..."
             className="w-full px-4 py-3 text-gray-800 border border-gray-300 rounded-md bg-gray-50 focus:border-violet-600"
             value={pseudo}
-            onChange={(e) => setPseudo(e.target.value)}
+            // onChange={(e) => setPseudo(e.target.value)}
             required
           />
         </div>
@@ -75,7 +75,7 @@ export default function ChatLanding({ setMember, peer }) {
             placeholder="Enter your age..."
             className="w-full px-4 py-3 text-gray-800 border border-gray-300 rounded-md bg-gray-50 focus:border-violet-600"
             value={age}
-            onChange={(e) => setAge(e.target.value)}
+            // onChange={(e) => setAge(e.target.value)}
           />
         </div>
         <div className="space-y-1 text-sm">
@@ -89,7 +89,7 @@ export default function ChatLanding({ setMember, peer }) {
             placeholder="Enter your gender..."
             className="w-full px-4 py-3 text-gray-800 border border-gray-300 rounded-md bg-gray-50 focus:border-violet-600"
             value={gender}
-            onChange={(e) => setGender(e.target.value)}
+            // onChange={(e) => setGender(e.target.value)}
             required
           />
         </div>
@@ -104,7 +104,7 @@ export default function ChatLanding({ setMember, peer }) {
             placeholder="Enter your location..."
             className="w-full px-4 py-3 text-gray-800 border border-gray-300 rounded-md bg-gray-50 focus:border-violet-600"
             value={location}
-            onChange={(e) => setLocation(e.target.value)}
+            // onChange={(e) => setLocation(e.target.value)}
             required
           />
         </div>

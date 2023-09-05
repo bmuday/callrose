@@ -74,7 +74,7 @@ export default function SignupForm() {
             placeholder="Enter your firstname..."
             className="w-full px-4 py-3 text-gray-800 border border-gray-300 rounded-md bg-gray-50 focus:border-violet-600"
             value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            // onChange={(e) => setFirstName(e.target.value)}
             required
           />
         </div>
@@ -89,7 +89,7 @@ export default function SignupForm() {
             placeholder="Enter your lastname..."
             className="w-full px-4 py-3 text-gray-800 border border-gray-300 rounded-md bg-gray-50 focus:border-violet-600"
             value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            // onChange={(e) => setLastName(e.target.value)}
             required
           />
         </div>
@@ -104,7 +104,7 @@ export default function SignupForm() {
             placeholder="Enter your email..."
             className="w-full px-4 py-3 text-gray-800 border border-gray-300 rounded-md bg-gray-50 focus:border-violet-600"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            // onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
@@ -119,7 +119,7 @@ export default function SignupForm() {
             placeholder="Enter your password..."
             className="w-full px-4 py-3 text-gray-800 border border-gray-300 rounded-md bg-gray-50 focus:border-violet-600"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            // onChange={(e) => setPassword(e.target.value)}
           />
           <div className="flex justify-end text-xs text-gray-600">
             <Link rel="noopener noreferrer" href="/forgot-password">
